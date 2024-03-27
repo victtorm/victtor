@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:37:51 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/23 14:44:36 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:19:26 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
 /*--------------------ENUM---------------------*/
 

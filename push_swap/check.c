@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:10:18 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/22 18:21:59 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:54:29 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,21 @@ int	check(char **str)
 {
 	int		i;
 	int		j;
-	
-	j = 0;		
+
+	j = 0;
 	while (str[j] != NULL)
 	{
 		i = 0;
 		if ((str[j][0] == 43 || str[j][0] == 45) &&
 		(str[j][1] >= 48) && (str[j][1] <= 57))
 			i++;
+		if (str[j][i] == '\0')
+		{
+			ft_printf("Error\n");
+			return (0);
+		}
 		while (str[j][i] != '\0')
-		{	
+		{
 			if (str[j][i] < 48 || str[j][i] > 57)
 			{
 				ft_printf("Error\n");

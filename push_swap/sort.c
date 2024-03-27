@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:39:28 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/22 17:31:22 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:27:03 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,17 @@ int     sort_check(t_list *stack)
 
 void    sort_3(t_list **stack)
 {
-        if(((*stack)->number > (*stack)->next->number) && ((*stack)->number > (*stack)->next->next->number))
+    t_list  *big;
+
+    big = biggest(stack);
+    if (ft_lstsize(*stack) == 3)
+    {
+        if (*stack == big)
             ra(stack);
-        if(((*stack)->number < (*stack)->next->number) && ((*stack)->next->number > (*stack)->next->next->number))
+        if ((*stack)->next == big)
             rra(stack);
-        if((*stack)->number > (*stack)->next->number)
+        if ((*stack)->number > (*stack)->next->number)
             sa(stack);
+    }
+    return ;
 }

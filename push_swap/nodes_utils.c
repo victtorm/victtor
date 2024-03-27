@@ -6,22 +6,32 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 14:39:48 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/23 16:51:31 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/03/27 17:15:24 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	update_nodes(t_list **stack_a, t_list **stack_b)
+{
+	node_index(stack_a);
+	node_index(stack_b);
+	target_a(stack_a, stack_b);
+	target_b(stack_a, stack_b);
+    cost_move(stack_a, stack_b);
+    cost_move(stack_b, stack_a);
+}
+
 t_list  *cheapest(t_list **stack)
 {
     t_list  *cheaper;
     t_list  *tmp;
-
+    
     tmp = *stack;
     cheaper = tmp;
     while (tmp)
     {
-        if(tmp->cost < cheaper->cost)
+        if (tmp->cost < cheaper->cost)
             cheaper = tmp;
         tmp = tmp->next;
     }
@@ -30,32 +40,53 @@ t_list  *cheapest(t_list **stack)
 
 void    node_index(t_list **stack)
 {
+    t_list  *tmp;
     int     med;
     int     i;
-
+    
+    tmp = *stack;
     med = ft_lstsize(*stack) / 2;
     i = 0;
-    while (stack)
+    while (tmp)
     {
-        stack->index = i;
+        tmp->index = i;
         if (i < med)
-            stack->above_med = true;
-        else 
-            stack->above_med = false;
-        stack = stack->next;
+            tmp->above_med = true;
+        else
+        tmp->above_med = false;
         i++;
+        tmp = tmp->next;
     }
 }
 
-void    node_target(t_list **stack_src, t_list  **stack_dst)
+t_list	*biggest(t_list **stack)
 {
-    t_list  *target_node;
-    long    target;
+	t_list	*big;
+    t_list  *tmp;
 
-    *target_node = NULL;
-    target = -214783649;
-    while (stack_dst)
-    {
-        if (stack_src->number < stack_dst->number) && (stack_src->number < target)
-    }
+	tmp = *stack;
+    big = tmp;
+	while (tmp)
+	{
+		if (tmp->number > big->number)
+			big = tmp;
+		tmp = tmp->next;
+	}
+	return (big);
+}
+
+t_list	*low(t_list **stack)
+{
+	t_list	*low;
+    t_list  *tmp;
+
+	tmp = *stack;
+    low = tmp;
+	while (tmp)
+	{
+		if (tmp->number < low->number)
+			low = tmp;
+		tmp = tmp->next;
+	}
+	return (low);
 }

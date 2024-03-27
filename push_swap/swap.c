@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:31:08 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/22 15:26:15 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/03/27 19:11:20 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,33 @@
 
 void	swap(t_list **stack)
 {
-	int		tmp;
-
 	if (ft_lstsize(*stack) < 2)
 		return ;
-	tmp = (*stack)->number;
-	(*stack)->number = (*stack)->next->number;
-	(*stack)->next->number = tmp;
+	*stack = (*stack)->next;
+	(*stack)->prev->prev = *stack;
+	(*stack)->prev->next = (*stack)->next;
+	if ((*stack)->next != NULL)
+		(*stack)->next->prev = (*stack)->prev;
+	(*stack)->next = (*stack)->prev;
+	(*stack)->prev = NULL;
 	return ;
 }
 
 void	sa(t_list **a)
 {
 	swap(a);
-	write(1, "sa\n", 4);
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_list **b)
 {
 	swap(b);
-	write(1, "sb\n", 4);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_list **a, t_list **b)
 {
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 4);
+	write(1, "ss\n", 3);
 }

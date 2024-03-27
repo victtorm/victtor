@@ -1,5 +1,5 @@
 PUSH_FILES = push_swap.c check.c push.c swap.c rotate.c rev_rotate.c \
-			create_stack.c sort.c \
+			create_stack.c sort.c cost_and_target.c moves_utils.c nodes_utils.c \
 
 OBJS = ${PUSH_FILES:.c=.o}
 CC = cc

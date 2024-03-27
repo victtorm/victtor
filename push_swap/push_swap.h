@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:28:46 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/22 17:29:13 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:59:50 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,22 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;*/
 
-void	push_swap(t_list **a);
+void		push_swap(t_list **a);
+void		free_stack(t_list **stack);
+int			ft_lstsize(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
 
 //  CHECK
 
-int		check(char **str);
-int		check_2(char **str);
-int		check_3(char **str);
+int			check(char **str);
+int			check_2(char **str);
+int			check_3(char **str);
 
 //  STACK - LIST
 
-t_list	*create_stack(t_list	*stack, char **str);
-t_list		*new_node(char *str);
-void	link_stack(t_list *stack, t_list *new);
+t_list		*create_stack(t_list	*stack, char **str);
+t_list		*new_node(int n);
+void		link_stack(t_list *stack, t_list *new);
 
 
 // MOVES
@@ -50,20 +53,40 @@ void		ra(t_list **a);
 void		rb(t_list **b);
 void		rr(t_list **a, t_list **b);
 // 		rev_rotate
-void	rev_rotate(t_list **stack);
-void	rra(t_list **a);
-void	rrb(t_list **b);
-void	rrr(t_list **a, t_list **b);
+void		rev_rotate(t_list **stack);
+void		rra(t_list **a);
+void		rrb(t_list **b);
+void		rrr(t_list **a, t_list **b);
 //		push
-void	push(t_list **stack_add, t_list **stack_lost);
-void	pa(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
+void		push(t_list **stack_add, t_list **stack_lost);
+void		pa(t_list **a, t_list **b);
+void		pb(t_list **a, t_list **b);
 
 //    SORT
 
-int     sort_check(t_list *stack);
-void    sort_3(t_list **stack);
+int    		sort_check(t_list *stack);
+void   		sort_3(t_list **stack);
 
 
+// COST AND TARGET
+
+void   		cost_move(t_list **stack_src, t_list **stack_dst);
+void		decrease_cost(t_list *t, t_list **s, t_list **d);
+void		target_a(t_list **stack_src, t_list **stack_dst);
+void		target_b(t_list **stack_src, t_list **stack_dst);
+
+// moves_utils
+
+void		move_to(t_list **stack_src, t_list **stack_dst, char c);
+void		prep_for_push(t_list **stack, t_list *target, char c);
+void		to_top(t_list **stack);
+
+// 	NODE_ULTIS
+
+void		update_nodes(t_list **stack_a, t_list **stack_b);
+t_list 		*cheapest(t_list **stack);
+void   		node_index(t_list **stack);
+t_list		*biggest(t_list **stack);
+t_list		*low(t_list **stack);
 
 #endif
