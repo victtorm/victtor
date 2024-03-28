@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:28:46 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/27 16:59:50 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:07:15 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void		target_b(t_list **stack_src, t_list **stack_dst);
 void		move_to(t_list **stack_src, t_list **stack_dst, char c);
 void		prep_for_push(t_list **stack, t_list *target, char c);
 void		to_top(t_list **stack);
+void		move_to_b(t_list **stack_a, t_list **stack_b, char c);
+void		move_to_a(t_list **stack_a, t_list **stack_b, char c);
 
 // 	NODE_ULTIS
 
