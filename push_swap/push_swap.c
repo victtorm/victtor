@@ -15,6 +15,7 @@
 void	push_swap(t_list **stack_a)
 {
 	t_list	*stack_b;
+	//t_list	*test;
 
 	stack_b = NULL;
 	if (!sort_check(*stack_a))
@@ -32,7 +33,13 @@ void	push_swap(t_list **stack_a)
 			move_to_a(stack_a, &stack_b, 'a');
 	}
 	to_top(stack_a);
-	free_stack(&stack_b);
+	/*test = *stack_a;
+	while(test)
+	{
+		printf("%i\n", test->number);
+		test = test->next;
+	}
+	free_stack(&stack_b);*/
 	return ;
 }
 

@@ -22,7 +22,7 @@ int	check_3(char **str)
 		n = ft_atol(*str);
 		if ((n < INT_MIN) || (n > INT_MAX))
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		str++;
@@ -44,7 +44,7 @@ int	check_2(char **str)
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
 			{
-				ft_printf("Error\n");
+				write(2, "Error\n", 6);
 				return (0);
 			}
 			j++;
@@ -71,14 +71,14 @@ int	check(char **str)
 			i++;
 		if (str[j][i] == '\0')
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		while (str[j][i] != '\0')
 		{
 			if (str[j][i] < 48 || str[j][i] > 57)
 			{
-				ft_printf("Error\n");
+				write(2, "Error\n", 6);
 				return (0);
 			}
 			i++;

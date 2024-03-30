@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv [argc - 1], ' ');
 		if (argv[0] == NULL)
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			return (0);
 		}
 	}

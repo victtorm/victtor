@@ -46,8 +46,10 @@ void	move_to(t_list **stack_src, t_list **stack_dst, char c)
 		else if (!(cheap->above_med) && !(cheap->target->above_med))
 			while (cheap != *stack_src && cheap->target != *stack_dst)
 				rrr(stack_src, stack_dst);
+		prep_for_push(stack_src, cheap, 'a');
+		prep_for_push(stack_dst, cheap->target, c);
 	}
-	prep_for_push(stack_src, cheap, c);
+	prep_for_push(stack_src, cheap, 'b');
 	prep_for_push(stack_dst, cheap->target, c);
 	return ;
 }
