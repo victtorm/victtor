@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_factorial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbritto- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 19:27:15 by vbritto-          #+#    #+#             */
-/*   Updated: 2023/09/10 15:13:40 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:16:22 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_recursive_factorial(int nb)
 	if (nb < 0)
 		return (0);
 	if (nb == 0 || nb == 1)
-		return (1); 
+		return (1);
 	return (nb * (ft_recursive_factorial(nb - 1)));
 }
 /*

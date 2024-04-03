@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:41:03 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/27 17:53:49 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:26:17 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,21 @@ int	main(int argc, char **argv)
 	{
 		if (argc == 1)
 			return (0);
+		if (argv[1][0] == '\0')
+			return (write(2, "Error\n", 6));
 		argv = ft_split(argv [argc - 1], ' ');
-		if (argv[0] == NULL)
-		{
-			write(2, "Error\n", 6);
-			return (0);
-		}
 	}
 	else
 		argv++;
 	if (!check(argv))
+	{
+		free_split(argv, argc);
+		write(2, "Error\n", 6);
 		return (0);
+	}
 	a = create_stack(a, argv);
 	push_swap(&a);
+	free_split(argv, argc);
 	free_stack(&a);
 	return (0);
 }

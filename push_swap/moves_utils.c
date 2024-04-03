@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:33:35 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/28 13:24:12 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:23:47 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,35 +49,34 @@ void	move_to(t_list **stack_src, t_list **stack_dst, char c)
 		prep_for_push(stack_src, cheap, 'a');
 		prep_for_push(stack_dst, cheap->target, c);
 	}
-	prep_for_push(stack_src, cheap, 'b');
-	prep_for_push(stack_dst, cheap->target, c);
+	if (c == 'a')
+	{
+		prep_for_push(stack_src, cheap, 'b');
+		prep_for_push(stack_dst, cheap->target, c);
+	}
 	return ;
 }
 
 void	move_to_b(t_list **stack_a, t_list **stack_b, char c)
 {
-	node_index(stack_a);
-	target_a(stack_a, stack_b);
-    cost_move(stack_a, stack_b);
+	update_nodes(stack_a, stack_b);
 	move_to(stack_a, stack_b, c);
 	pb(stack_a, stack_b);
-	return;
+	return ;
 }
 
 void	move_to_a(t_list **stack_a, t_list **stack_b, char c)
 {
-	node_index(stack_b);
-	target_b(stack_a, stack_b);
-	cost_move(stack_b, stack_a);
+	update_nodes(stack_a, stack_b);
 	move_to(stack_b, stack_a, c);
 	pa(stack_a, stack_b);
-	return;
+	return ;
 }
 
 void	to_top(t_list **stack)
 {
 	t_list	*min;
-	
+
 	node_index(stack);
 	min = low(stack);
 	while (min != *stack)

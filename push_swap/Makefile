@@ -9,19 +9,28 @@ NAME = push_swap
 LIBFTA = ./libft/libft.a
 LIBFTD = ./libft
 
+BONUS = ./bonus_checker/checker.c ./bonus_checker/get_next_line.c ./bonus_checker/get_next_line_utils.c
+OBJSB = ${BONUS:.c=.o}
+CHECKER = checker
+
 all:		${NAME}
 
 ${NAME}:	${OBJS} ${LIBFTA}
 			${CC} ${CFLAGS} main.c $(OBJS) ${LIBFTA} -o ${NAME}
 
-${LIBFTA}:	$(LIBFTD)
-		make -C $(LIBFTD)
+${LIBFTA}:	${LIBFTD}
+		make -C ${LIBFTD}
+
+bonus: ${CHECKER} 
+
+${CHECKER}:		${OBJSB}
+				${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${LIBFTA} -o ${CHECKER}
 
 clean:
-			${RM} ${OBJS}
+			${RM} ${OBJS} ${OBJSB}
 
 fclean:		clean
-			${RM} ${NAME}
+			${RM} ${NAME} ${CHECKER}
 
 re:			fclean ${NAME}
 

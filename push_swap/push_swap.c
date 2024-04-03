@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:28:50 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/28 14:06:39 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:16:30 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	push_swap(t_list **stack_a)
 {
 	t_list	*stack_b;
-	//t_list	*test;
 
 	stack_b = NULL;
 	if (!sort_check(*stack_a))
@@ -33,13 +32,6 @@ void	push_swap(t_list **stack_a)
 			move_to_a(stack_a, &stack_b, 'a');
 	}
 	to_top(stack_a);
-	/*test = *stack_a;
-	while(test)
-	{
-		printf("%i\n", test->number);
-		test = test->next;
-	}
-	free_stack(&stack_b);*/
 	return ;
 }
 

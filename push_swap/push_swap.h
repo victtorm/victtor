@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:28:46 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/03/28 13:07:15 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/04/03 17:53:42 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;*/
 
+// PUSH_SWAP
+
 void		push_swap(t_list **a);
 void		free_stack(t_list **stack);
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
+void		free_split(char **str, int n);
 
 //  CHECK
 
@@ -39,7 +42,6 @@ int			check_3(char **str);
 t_list		*create_stack(t_list	*stack, char **str);
 t_list		*new_node(int n);
 void		link_stack(t_list *stack, t_list *new);
-
 
 // MOVES
 //		swap
@@ -64,13 +66,12 @@ void		pb(t_list **a, t_list **b);
 
 //    SORT
 
-int    		sort_check(t_list *stack);
-void   		sort_3(t_list **stack);
-
+int			sort_check(t_list *stack);
+void		sort_3(t_list **stack);
 
 // COST AND TARGET
 
-void   		cost_move(t_list **stack_src, t_list **stack_dst);
+void		cost_move(t_list **stack_src, t_list **stack_dst);
 void		decrease_cost(t_list *t, t_list **s, t_list **d);
 void		target_a(t_list **stack_src, t_list **stack_dst);
 void		target_b(t_list **stack_src, t_list **stack_dst);
@@ -86,8 +87,8 @@ void		move_to_a(t_list **stack_a, t_list **stack_b, char c);
 // 	NODE_ULTIS
 
 void		update_nodes(t_list **stack_a, t_list **stack_b);
-t_list 		*cheapest(t_list **stack);
-void   		node_index(t_list **stack);
+t_list		*cheapest(t_list **stack);
+void		node_index(t_list **stack);
 t_list		*biggest(t_list **stack);
 t_list		*low(t_list **stack);
 

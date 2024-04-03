@@ -6,7 +6,7 @@
 /*   By: vbritto- <vbritto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:47:39 by vbritto-          #+#    #+#             */
-/*   Updated: 2024/01/31 17:53:21 by vbritto-         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:44:59 by vbritto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**ft_split(char const *s, char c)
 
 	str = (char **)malloc((len(s, c) + 1) * sizeof(char *));
 	if (!str)
-		return (NULL);
+		return (clean(str, 0));
 	n[I] = 0;
 	n[WORD_I] = 0;
 	while (s[n[I]] != '\0')
